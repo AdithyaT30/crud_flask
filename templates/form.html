@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form</title>
+</head>
+<body>
+    <h1>Submit Your Info</h1>
+    <form action="" method="post">
+        <label>Name:</label>
+        <input type="text" name="name" required>
+        <br><br>
+        <label>City:</label>
+        <input type="text" name="city" required>
+        <br><br>
+        <button type="submit">Submit</button>
+    </form>
+    <form action="/update" method="post">
+        <label>Name</label>
+        <input type="text" name="name">
+        <input type="text" name="name2">
+        <button type="submit">Submit</button>
+    </form>
+    <form action="/show" method="get">
+        <label>Name</label>
+        <input type="text" name="name">
+        <button type="submit">Submit</button>
+    </form>
+    <table>
+        {% if ad %}
+                {% for i in ad %}
+                    <tr>
+                        <td>{{ i['name'] }}</td>  <!-- Access columns by their actual names -->
+                        <td>{{ i['city'] }}</td>
+                    <!-- Add more columns as needed -->
+                    </tr>
+                {% endfor %}
+        {% else %}
+            <tr>
+                <td colspan="2">No results found.</td>
+            </tr>
+        {% endif %}
+    </table>
+    <h1>Delete Employee</h1>
+    
+    <form method="POST" action="/delete">
+        <label for="name">Enter Employee Name to Delete:</label>
+        <input type="text"  name="name" required>
+        <br><br>
+        <button type="submit">Delete</button>
+    </form>
+</body>
+</html>
