@@ -2,15 +2,15 @@ from flask import Flask,request,render_template,flash
 import pymysql
 app=Flask(__name__)
 
-app.secret_key = b'\xc1\xb7\xd3\x19QV`\x0b\x19\x84\xf4;\\\xaaQ\xae\xf4A%\x1c\xf7H\xa5\x14'  # Replace with a secure, unique key
+app.secret_key = 'your_secret_key'  # Replace with a secure, unique key
 
 
 def get_db_connection():
     connection=pymysql.connect(
         host='localhost',
-        user='root',
-        password='root',
-        database='emp',
+        user='yourusername',
+        password='yourpassword',
+        database='yourdatabasename',
         cursorclass=pymysql.cursors.DictCursor
     )
     return connection
